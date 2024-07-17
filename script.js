@@ -24,9 +24,14 @@ todoList.forEach((taskObject, index) => {
     const html = `
       <div>${task}</div>
       <div>${date}</div>
-      <button class="js__ delete__todo-btn delete__todo-btn">DELETE</button>
+      <button class="js__delete__todo-btn delete__todo-btn">DELETE</button>
     `;
     todoListHTML += html;
+  });
+
+    //put the HTML on the web page
+  document.querySelector('.js__todo-list')
+  .innerHTML = todoListHTML;
 
   //delete task when delete button is clciked
   document.querySelectorAll('.js__delete__todo-btn')
@@ -36,15 +41,10 @@ todoList.forEach((taskObject, index) => {
         createTodoList();
       });
     });
-  });
-
-  //put the HTML on the web page
-  document.querySelector('.js__todo-list')
-    .innerHTML = todoListHTML;
 }
 
 //get task from textbox when add button is clicked
-document.querySelector('.jd__add-btn')
+document.querySelector('.js__add-btn')
   .addEventListener('click', () => {
     taskInput();
   });
