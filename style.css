@@ -1,0 +1,52 @@
+body {
+  font-family: Roboto, sans-serif;
+  color: rgb(59, 57, 57);
+  background-color: rgb(231, 228, 228);
+  margin: 100px;
+}
+
+h1 {
+  font-size: x-large;
+  margin-left: 2px;
+}
+
+.todo__grid, .todo__input__grid {
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+  column-gap: 10px;
+  row-gap: 10px;
+  align-items: center;
+}
+
+.todo__grid {
+  margin-left: 2px;
+}
+
+.todo__input__grid {
+  margin-bottom: 10px;
+  align-items: stretch;
+}
+
+.task__input, .date__input {
+  font-size: 15px;
+  padding: 6px;
+  color: rgb(118, 116, 116);
+  background-color: rgb(231, 228, 228);
+}
+
+.add__todo-btn {
+  background-color: rgb(12, 250, 147);
+  color: rgb(59, 58, 58);
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 2px;
+}
+
+.delete__todo-btn {
+  background-color: rgb(251, 107, 196);
+  color: rgb(41, 40, 40);
+  border: none;
+  font-size: 15px;
+  padding: 8px;
+}
