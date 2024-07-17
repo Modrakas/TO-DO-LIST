@@ -50,3 +50,19 @@ h1 {
   font-size: 15px;
   padding: 8px;
 }
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .todo__grid, .todo__input__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .task__input, .date__input, .add__todo-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .add__todo-btn {
+    width: 100%;
+  }
+}
