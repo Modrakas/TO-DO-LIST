@@ -7,12 +7,12 @@ body {
 
 h1 {
   font-size: x-large;
-  margin-left: 2px;
+  margin-left: 1px;
 }
 
 .todo__grid, .todo__input__grid {
   display: grid;
-  grid-template-columns: 200px 150px 100px;
+  grid-template-columns: 200px 150px;
   column-gap: 10px;
   row-gap: 10px;
   align-items: center;
@@ -27,20 +27,28 @@ h1 {
   align-items: stretch;
 }
 
-.task__input, .date__input {
+.task__input {
   font-size: 15px;
   padding: 6px;
   color: rgb(118, 116, 116);
   background-color: rgb(231, 228, 228);
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 2px;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 .add__todo-btn {
   background-color: rgb(12, 250, 147);
   color: rgb(59, 58, 58);
   border: none;
+  border-radius: 2px;
   font-size: 15px;
   cursor: pointer;
-  margin-left: 2px;
 }
 
 .delete__todo-btn {
@@ -53,16 +61,31 @@ h1 {
 
 /* Mobile Styles */
 @media (max-width: 600px) {
-  .todo__grid, .todo__input__grid {
+ .todo__input__grid {
     grid-template-columns: 1fr;
   }
 
-  .task__input, .date__input, .add__todo-btn {
+  .todo__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .task__input, .add__todo-btn {
     font-size: 14px;
     padding: 10px;
   }
 
+  .delete__todo-btn {
+    font-size: 14px;
+    padding: 10px 5px;
+    /* background-color: transparent; */
+  }
+
   .add__todo-btn {
     width: 100%;
+  }
+
+  .delete__todo-btn {
+    width: 50%;
+    justify-self: end;
   }
 }

@@ -20,11 +20,10 @@ function createTodoList() {
   let todoListHTML = '';
 
 todoList.forEach((taskObject, index) => {
-    const {task, date} = taskObject;
+    const task = taskObject;
     const html = `
       <div>${task}</div>
-      <div>${date}</div>
-      <button class="js__delete__todo-btn delete__todo-btn">DELETE</button>
+      <button class="js__delete__todo-btn delete__todo-btn">x</button>
     `;
     todoListHTML += html;
   });
@@ -60,13 +59,8 @@ function taskInput () {
   const inputElement = document.querySelector('.js__task-input');
   let task = inputElement.value;
 
-  const dateInputElement = document.querySelector('.js__date-input');
-  let date = dateInputElement.value;
 
-    todoList.push({
-      task,
-      date
-  });
+    todoList.push(task);
 
     inputElement.value = '';
     // create HTML code for each task
