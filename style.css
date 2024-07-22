@@ -9,7 +9,6 @@ body {
   display: relative;
   width: 400px;
   height: 550px;
-  /* border: 2px solid rgb(231, 228, 228); */
   border-radius: 8px;
   padding: 30px 50px;
   box-shadow: 25px 25px 75px rgb(255, 255, 255, 0.25),
@@ -84,6 +83,14 @@ input:focus {
 
 /* Mobile Styles */
 @media (max-width: 600px) {
+  .todoList-container {
+    display: relative;
+    justify-self: center;
+    align-items: center;
+    width: 250px;
+    height: 500px;
+    margin-left: -25px;
+  }
  .todo__input__grid {
     grid-template-columns: 1fr;
   }
