@@ -7,17 +7,17 @@
   <title>Todo List</title>
 </head>
 <body>
-  <h1>Todo List</h1>
+  <div class="todoList-container">
+    <h1>Todo List</h1>
 
-  <div class="todo__input__grid">
-    <input type="text" placeholder="Task" class="js__task-input task__input" onkeydown="addTaskKeydown(event)">
+    <div class="todo__input__grid">
+      <input type="text" placeholder="Task" class="js__task-input task__input" onkeydown="addTaskKeydown(event)">
 
-   
+      <button class="js__add-btn add__todo-btn">Add</button>
+    </div>
 
-    <button class="js__add-btn add__todo-btn">Add</button>
+    <div class="js__todo-list todo__grid"></div>
   </div>
-
-  <div class="js__todo-list todo__grid"></div>
 
   <script src="script.js"> 
 

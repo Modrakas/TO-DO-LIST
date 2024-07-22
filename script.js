@@ -8,8 +8,13 @@
 7. put the HTML on the web page
 */
 
+
+//gets data form local storage when page is opened/refreshed
+
+
 // create an array to store tasks
-const todoList = [];
+//get tasks from local storage
+let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
 //create HTML code for each task
 createTodoList()
@@ -19,13 +24,13 @@ createTodoList()
 function createTodoList() {
   let todoListHTML = '';
 
-todoList.forEach((taskObject, index) => {
-    const task = taskObject;
+todoList.forEach((task, index) => {
     const html = `
-      <div>${task}</div>
+      <div class="task">${task}</div>
       <button class="js__delete__todo-btn delete__todo-btn">x</button>
     `;
     todoListHTML += html;
+
   });
 
     //put the HTML on the web page
@@ -37,6 +42,10 @@ todoList.forEach((taskObject, index) => {
     .forEach((deleteButton, index) => {
       deleteButton.addEventListener('click', () => {
         todoList.splice(index, 1);
+
+        //save new todoLits to local storage when task is deleted
+        localStorage.setItem('todoList', JSON.stringify(todoList));
+        
         createTodoList();
       });
     });
@@ -57,12 +66,18 @@ function addTaskKeydown(event) {
 //add task to array
 function taskInput () {
   const inputElement = document.querySelector('.js__task-input');
-  let task = inputElement.value;
+  let task = inputElement.value.trim();
 
-
+  if (task){
     todoList.push(task);
 
     inputElement.value = '';
+
     // create HTML code for each task
     createTodoList();
+
+    //save new todoList to local storage when new task is added
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+  }
 }
+
