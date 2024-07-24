@@ -3,24 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" crossorigin="">
   <link rel="stylesheet" href="style.css">
   <title>Todo List</title>
 </head>
-<body>
-  <div class="todoList-container">
-    <h1>To Do List</h1>
+  <body>
+    <!-- TO DO LIST CONTAINER -->
+    <div class="todo__list">
+      <div class="todo__container">
 
-    <div class="todo__input__grid">
-      <input type="text" placeholder="Task" class="js__task-input task__input" onkeydown="addTaskKeydown(event)">
+        <!-- TOP TO DO LIST CONTAINER -->
+        <div class="top__container">
 
-      <button class="js__add-btn add__todo-btn">Add</button>
+          <!-- LEFT SIDE OF TOP TO DO LIST CONTAINER -->
+          <div class="date__container">
+            <div class="day__number">
+              24
+            </div>
+
+            <div class="monthAndYear__container">
+              <div class="month">JUL</div>
+              <div class="year">2024</div>
+            </div>
+          </div>
+
+          <!-- RIGHT SIDE OF TOP TO DO LIST CONTAINER -->
+          <div class="day__container">Wednesday</div>
+        </div>
+
+        <!-- BOTTOM TO DO LIST CONTAINER -->
+        <div class="js__todo-list todo__grid"></div>    
+      </div>
+
+      <!-- VISIBLE ADD TASK BUTTON -->
+      <div class="add-btn__container">
+        <button class="js__add-btn add__task-btn">+</button>
+      </div>
+
+      <!-- APPEARS AFTER JS__add-BTN IS CLICKED -->
+      <!-- TASK INPUT CONTAINER -->
+      <div class="task-input-container" style="display:none;">
+        <input type="text" class="js__task-input task__input" placeholder="Enter a new task" onkeydown="addTaskKeydown(event)">
+        <button class="js__add-task-btn input-btn">+</button>
+      </div>
     </div>
 
-    <div class="js__todo-list todo__grid"></div>
-  </div>
-
-  <script src="script.js"> 
-
-  </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
