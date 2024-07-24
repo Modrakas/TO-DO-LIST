@@ -223,7 +223,8 @@ input {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-left: 3em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
   }
 
   input {
@@ -259,7 +260,8 @@ input {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-left: 3em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
   }
 
   input {
