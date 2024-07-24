@@ -205,8 +205,8 @@ input {
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .todo__container {
-    width: 50vw;
-    padding: 5em;
+    width: 60vw;
+    padding: 2em;
   }
   
   .date__container,
@@ -215,7 +215,7 @@ input {
   }
 
   .monthAndYear__container {
-    margin-left: .3em;
+    margin-left: .5em;
   }
 
   input {
@@ -225,8 +225,8 @@ input {
 
 @media screen and (max-width: 480px) {
   .todo__container {
-    width: 40vw;
-    padding: 2.5em;
+    width: 90vw;
+    padding: 1.5em;
   }
   
   .date__container,
@@ -235,6 +235,6 @@ input {
   }
 
   input {
-    width: 40vw;
+    width: 70vw;
   }
 }
