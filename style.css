@@ -218,11 +218,12 @@ input {
     margin-left: .5em;
   }
 
-  add__task-btn {
+  .add-btn__container {
     display: flex;
     justify-content: center;
-    justify-self: center;
     align-items: center;
+    width: 100%;
+    margin-left: 3em;
   }
 
   input {
@@ -253,11 +254,12 @@ input {
     font-size: var(--small-font-size);
   }
 
-  add__task-btn {
+  .add-btn__container {
     display: flex;
     justify-content: center;
-    justify-self: center;
     align-items: center;
+    width: 100%;
+    margin-left: 3em;
   }
 
   input {
