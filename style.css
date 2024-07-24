@@ -218,6 +218,13 @@ input {
     margin-left: .5em;
   }
 
+  add__task-btn {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+  }
+
   input {
     width: 70%;
   }
@@ -244,6 +251,13 @@ input {
   .date__container,
   .day__container {
     font-size: var(--small-font-size);
+  }
+
+  add__task-btn {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
   }
 
   input {
