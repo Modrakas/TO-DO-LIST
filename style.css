@@ -214,8 +214,12 @@ input {
     font-size: var(--normal-font-size);
   }
 
+  .monthAndYear__container {
+    margin-left: .3em;
+  }
+
   input {
-    width: 60vw;
+    width: 50vw;
   }
 }
 
@@ -231,6 +235,6 @@ input {
   }
 
   input {
-    width: 90vw;
+    width: 40vw;
   }
 }
