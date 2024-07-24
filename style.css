@@ -222,7 +222,7 @@ input {
 @media screen and (max-width: 480px) {
   .todo__container {
     width: 90vw;
-    padding: 1em;
+    padding: 1.5em;
   }
   
   .date__container,
