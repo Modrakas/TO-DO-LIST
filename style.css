@@ -206,7 +206,6 @@ input {
 @media screen and (max-width: 768px) {
   .todo__container {
     width: 60vw;
-    margin: 10em;
   }
   
   .date__container,
@@ -226,7 +225,6 @@ input {
 @media screen and (max-width: 480px) {
   .todo__container {
     width: 90vw;
-    margin: 10em;
   }
   
   .date__container,
