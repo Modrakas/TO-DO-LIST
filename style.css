@@ -218,6 +218,18 @@ input {
   input {
     width: 50vw;
   }
+
+  .delete__todo-btn {
+    position: absolute;
+    justify-self: flex-end;
+    font-size: var(--h2-font-size);
+    border: none;
+    padding: 0;
+    background-color: var(--container-color);
+    color: var(--second-color);
+    z-index: var(--z-fixed);
+    cursor: pointer;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -233,5 +245,17 @@ input {
 
   input {
     width: 70vw;
+  }
+
+  .delete__todo-btn {
+    position: absolute;
+    justify-self: flex-end;
+    font-size: var(--h2-font-size);
+    border: none;
+    padding: 0;
+    background-color: var(--container-color);
+    color: var(--second-color);
+    z-index: var(--z-fixed);
+    cursor: pointer;
   }
 }
