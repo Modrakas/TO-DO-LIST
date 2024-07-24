@@ -219,7 +219,7 @@ input {
   }
 
   input {
-    width: 50vw;
+    width: 70%;
   }
 
   .delete__todo-btn {
@@ -237,7 +237,7 @@ input {
 
 @media screen and (max-width: 480px) {
   .todo__container {
-    width: 90vw;
+    width: 90%;
     margin-left: 2em;
   }
   
