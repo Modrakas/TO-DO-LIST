@@ -203,7 +203,7 @@ input {
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .todo__container {
     width: 60vw;
     padding: 2em;
@@ -219,7 +219,7 @@ input {
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .todo__container {
     width: 90vw;
     padding: 1em;
