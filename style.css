@@ -56,8 +56,8 @@ body {
   display:absolute;
   justify-content: center;
   align-self: center;
-  height: 70vh;
-  width: 25vw;
+  height: 10;
+  width: 90%;
   background-color: var(--container-color);
   padding: 4em;
   box-shadow:inset 0 0.04em 0.15em var(--text-color-light);
@@ -113,11 +113,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  margin-left: 3em;
 }
 
 .add__task-btn {
   display: flex;
   justify-content: center;
+  justify-self: center;
   align-items: center;
   padding: .4em .7em;
   background-color: var(--highlight_color);
@@ -203,7 +206,7 @@ input {
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .todo__container {
-    width: 60vw;
+    width: 80%;
   }
   
   .date__container,
