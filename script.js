@@ -27,7 +27,7 @@ function createTodoList() {
 todoList.forEach((task, index) => {
   const taskText = task.text || '';
   const checkedClass = task.completed ? 'ri-check-double-line' : 'ri-checkbox-blank-circle-line';
-  const deleteButtonDisplay = task.completed ? 'inline-blaco' : 'none';
+  const deleteButtonDisplay = task.completed ? 'inline-block' : 'none';
 
   const html = `
   <div class="task-container">
@@ -36,7 +36,7 @@ todoList.forEach((task, index) => {
       <i class="${checkedClass} task__circle"></i>
     </button>
     <button class="js__delete__todo-btn delete__todo-btn" style="display: ${deleteButtonDisplay};">
-      <i class="ri-delete-bin-line"></i>
+      <i class="ri-check-double-line"></i>
     </button>
   </div>
   `;
@@ -75,10 +75,7 @@ todoList.forEach((task, index) => {
   document.querySelectorAll('.js__delete__todo-btn')
     .forEach((deleteButton, index) => {
       deleteButton.addEventListener('click', () => {
-        console.log('Deleting task at index:', index);
         todoList.splice(index, 1);
-
-        console.log('Updated todoList:', todoList);
         //save new todoLits to local storage when task is deleted
         localStorage.setItem('todoList', JSON.stringify(todoList));
         
@@ -130,112 +127,22 @@ function taskInput () {
   }
 }
 
-// // Create an array to store tasks
-// // Get tasks from local storage
-// let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
-// console.log('Loaded todoList:', todoList);
 
-// // Create HTML code for each task
-// createTodoList();
 
-// // Function to create and render the task list
-// function createTodoList() {
-//   let todoListHTML = '';
+const n = new Date();
+document.getElementById("dateNumber").innerHTML = n.getDate();
 
-//   todoList.forEach((task, index) => {
-//     const checkedClass = task.completed ? 'ri-check-double-line' : 'ri-checkbox-blank-circle-line';
-//     const deleteButtonDisplay = task.completed ? 'inline-block' : 'none';
-//     const taskClass = task.completed ? 'completed-task' : '';
+const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+const m = new Date();
+let month = months[m.getMonth()];
+document.getElementById("dateMonth").innerHTML = month;
 
-//     const html = `
-//       <div class="task-container">
-//         <div class="task ${taskClass}">${task.text}</div>
-//         <button class="js__checkOff__todo-btn check__todo-btn">
-//           <i class="${checkedClass} task__circle"></i>
-//         </button>
-//         <button class="js__delete__todo-btn delete__todo-btn" style="display: ${deleteButtonDisplay};">
-//           <i class="ri-check-double-line task__check"></i>
-//         </button>
-//       </div>
-//     `;
-//     todoListHTML += html;
-//   });
+const year = new Date();
+document.getElementById("fullYear").innerHTML = year.getFullYear();
 
-//   // Put the HTML on the web page
-//   document.querySelector('.js__todo-list').innerHTML = todoListHTML;
+const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
-//   // Toggle check off and delete task when check button is clicked
-//   document.querySelectorAll('.js__checkOff__todo-btn').forEach((checkButton, index) => {
-//     checkButton.addEventListener('click', () => {
-//       const icon = checkButton.querySelector('i');
-//       const task = todoList[index];
+const d = new Date();
+let day = days[d.getDay()];
+document.getElementById("dayLong").innerHTML = day;
 
-//       icon.classList.toggle('ri-checkbox-blank-circle-line');
-//       icon.classList.toggle('ri-check-double-line');
-
-//       // Update task status
-//       task.completed = !task.completed;
-
-//       // Only show delete button when icon class is ri-check-double-line
-//       const deleteButton = document.querySelectorAll('.js__delete__todo-btn')[index];
-//       deleteButton.style.display = task.completed ? 'inline-block' : 'none';
-
-//       // Save updated todoList to local storage
-//       console.log('Saving to localStorage:', JSON.stringify(todoList));
-//       localStorage.setItem('todoList', JSON.stringify(todoList));
-//     });
-//   });
-
-//   // Delete task when delete button is clicked
-//   document.querySelectorAll('.js__delete__todo-btn').forEach((deleteButton, index) => {
-//     deleteButton.addEventListener('click', () => {
-//       // Remove the task from the array
-//       todoList.splice(index, 1);
-      
-//       // Save updated todoList to local storage
-//       console.log('Saving to localStorage:', JSON.stringify(todoList));
-//       localStorage.setItem('todoList', JSON.stringify(todoList));
-      
-//       // Recreate the task list
-//       createTodoList();
-//     });
-//   });
-// }
-
-// // Show input field when add button is clicked
-// document.querySelector('.js__add-btn').addEventListener('click', () => {
-//   document.querySelector('.task-input-container').style.display = 'block';
-//   document.querySelector('.js__task-input').focus();
-//   document.querySelector('.js__add-btn').style.display = 'none';
-// });
-
-// // Get task from textbox when add task button is clicked
-// document.querySelector('.js__add-task-btn').addEventListener('click', () => {
-//   taskInput();
-// });
-
-// // Get task from textbox when enter key is pressed
-// function addTaskKeydown(event) {
-//   if (event.key === "Enter") taskInput();
-// }
-
-// // Add task to array
-// function taskInput() {
-//   const inputElement = document.querySelector('.js__task-input');
-//   let taskText = inputElement.value.trim();
-
-//   if (taskText) {
-//     todoList.push({ text: taskText, completed: false });
-//     inputElement.value = '';
-
-//     createTodoList();
-
-//     // Save new todoList to local storage when new task is added
-//     console.log('Saving to localStorage:', JSON.stringify(todoList));
-//     localStorage.setItem('todoList', JSON.stringify(todoList));
-
-//     // Hide the input field container
-//     document.querySelector('.task-input-container').style.display = 'none';
-//     document.querySelector('.js__add-btn').style.display = 'block';
-//   }
-// }
