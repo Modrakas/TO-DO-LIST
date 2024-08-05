@@ -34,34 +34,34 @@
   /*========== z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
+  --z-fixed-top: 200;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: var(--body-font);
   color: var(--text-color);
   background-color: var(--body-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1em;
-  padding: 1em;
 }
 
 .todo__list {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
 }
 
 .todo__container {
-  display:absolute;
-  justify-content: center;
+  display: absolute;
+  justify-self: center;
   align-self: center;
-  height: 10;
   width: 90%;
   background-color: var(--container-color);
-  padding: 4em;
-  margin-left: .5em;
-  margin-right: .5em;
+  padding: 5%;
+  margin-top: 10%;
   box-shadow:inset 0 0.04em 0.15em var(--text-color-light);
   z-index: var(--z-tooltip);
 }
@@ -73,11 +73,17 @@ body {
 }
 
 .date__container {
-  width: 8vw;
+  width: 30%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-left: -6%;
 }
 
+.day__number {
+  display: flex;
+  justify-self: end;
+  align-self: flex-start;
+}
 .day__number,
 .monthAndYear__container {
   display: flex;
@@ -91,15 +97,16 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   font-size: var(--smaller-font-size);
+  margin-left: -50px;
 }
 
 .month {
-  margin-top: .6em;
+  margin-top: .4em;
   font-weight: var(--font-semi-bold);
 }
 
 .year {
-  margin-top: -1.6em;
+  margin-top: -1.9em;
   font-weight: var(--font-regular);
 }
 
@@ -115,7 +122,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   margin-left: 3em;
 }
 
@@ -143,17 +149,21 @@ body {
 .task-input-container {
   position: relative;
   justify-self: center;
-  margin-top: -1.3em;
-  z-index: var(--z-fixed);
+  align-self: center ;
+  display: grid;
+  grid-template-columns: .5fr .5fr;
+  margin-top: -3%;
+  padding-left: 9%;
+  width: 50%;
+  z-index: var(--z-fixed-top);
 }
 
 input {
-  width: 25vw;
-  height: 3vh;
   border: none;
   padding: .3em .6em;
   box-shadow: inset 0 0.10em 0.25em var(--black-color-light);
   outline: none;
+  width: 20px;
 }
 
 .input-btn {
