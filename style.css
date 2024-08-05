@@ -97,16 +97,15 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   font-size: var(--smaller-font-size);
-  margin-left: -50px;
 }
 
 .month {
-  margin-top: .4em;
+  margin-top: 20%;
   font-weight: var(--font-semi-bold);
 }
 
 .year {
-  margin-top: -1.9em;
+  margin-bottom: 130%;
   font-weight: var(--font-regular);
 }
 
@@ -114,7 +113,6 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  margin-top: .5em;
   font-size: var(--small-font-size);
   font-weight: var(--font-semi-bold);
 }
@@ -122,7 +120,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 3em;
 }
 
 .add__task-btn {
@@ -163,7 +160,6 @@ input {
   padding: .3em .6em;
   box-shadow: inset 0 0.10em 0.25em var(--black-color-light);
   outline: none;
-  width: 20px;
 }
 
 .input-btn {
@@ -179,7 +175,7 @@ input {
 .task-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 2em;
+  margin-top: 5%;
 }
 
 .check__todo-btn,
@@ -216,7 +212,56 @@ input {
 }
 
 /* Responsive Styles */
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 1280px) {
+  .todo__container {
+    width: 50%;
+    margin-left: .5em;
+    margin-right: .5em;
+  }
+  
+  .date__container,
+  .day__container {
+    font-size: var(--normal-font-size);
+  }
+
+  .date__container {
+    margin-left: -10%;
+  }
+
+  .monthAndYear__container {
+    margin-left: .5em;
+  }
+
+  .year {
+    margin-bottom: 215%;
+  }
+
+  .add-btn__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: -.6em;
+  }
+
+  input {
+    width: 70%;
+  }
+
+  .delete__todo-btn {
+    position: absolute;
+    justify-self: flex-end;
+    font-size: var(--h2-font-size);
+    border: none;
+    padding: 0;
+    background-color: var(--container-color);
+    color: var(--second-color);
+    z-index: var(--z-fixed);
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .todo__container {
     width: 50%;
     margin-left: .5em;
@@ -230,6 +275,10 @@ input {
 
   .monthAndYear__container {
     margin-left: .5em;
+  }
+
+  .year {
+    margin-bottom: 175%;
   }
 
   .add-btn__container {
@@ -262,6 +311,10 @@ input {
     width: 70%;
     margin-left: .5em;
     margin-right: .5em;
+  }
+
+  .date__container {
+    margin-left: .15%;
   }
   
   .date__container,
