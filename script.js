@@ -68,6 +68,7 @@ todoList.forEach((task, index) => {
       // Save updated todoList to local storage
       localStorage.setItem('todoList', JSON.stringify(todoList));
 
+      //needed to store new to do list
       createTodoList()
     });
   });
@@ -133,7 +134,7 @@ function taskInput () {
 }
 
 
-
+//js date generator
 const n = new Date();
 document.getElementById("dateNumber").innerHTML = n.getDate();
 
