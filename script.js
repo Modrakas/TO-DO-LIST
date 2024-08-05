@@ -27,16 +27,16 @@ function createTodoList() {
 todoList.forEach((task, index) => {
   const taskText = task.text || '';
   const checkedClass = task.completed ? 'ri-check-double-line' : 'ri-checkbox-blank-circle-line';
-  const deleteButtonDisplay = task.completed ? 'inline-block' : 'none';
+  const deleteButtonDisplay = task.completed ? 'ri-close-line' : 'none';
 
   const html = `
   <div class="task-container">
-    <div class="${task.completed ? 'completed-task' : 'task'}">${task.text}</div>
-    <button class="js__checkOff__todo-btn check__todo-btn">
+  <button class="js__checkOff__todo-btn check__todo-btn">
       <i class="${checkedClass} task__circle"></i>
     </button>
+    <div class="${task.completed ? 'completed-task' : 'task'}">${task.text}</div>
     <button class="js__delete__todo-btn delete__todo-btn" style="display: ${deleteButtonDisplay};">
-      <i class="ri-check-double-line"></i>
+      <i class="ri-close-line"></i>
     </button>
   </div>
   `;
@@ -44,7 +44,7 @@ todoList.forEach((task, index) => {
 
   });
 
-    //put the HTML on the web page
+  //put the HTML on the web page
   document.querySelector('.js__todo-list')
   .innerHTML = todoListHTML;
 
@@ -63,10 +63,12 @@ todoList.forEach((task, index) => {
 
       // Update delete button visibility
       const deleteButton = document.querySelectorAll('.js__delete__todo-btn')[index];
-      deleteButton.style.display = !task.completed ? 'inline-block' : 'none';
+      deleteButton.style.display = task.completed ? 'inline-block' : 'none';
 
       // Save updated todoList to local storage
       localStorage.setItem('todoList', JSON.stringify(todoList));
+
+      createTodoList()
     });
   });
       
@@ -87,14 +89,17 @@ todoList.forEach((task, index) => {
 // Show input field when add button is clicked
 document.querySelector('.js__add-btn')
   .addEventListener('click', () => {
+    document.querySelector('.js__add-btn')
+  .addEventListener('click', () => {
     document.querySelector('.task-input-container').style.display = 'block';
     //so user does not have to click input field before typing
     document.querySelector('.js__task-input').focus();
     //hide the add-btn when task-input-container appears
     document.querySelector('.js__add-btn').style.display = 'none';
   });
+  });
 
-  // Get task from textbox when add task button is clicked
+// Get task from textbox when add task button is clicked
 document.querySelector('.js__add-task-btn').addEventListener('click', () => {
   taskInput();
 });
