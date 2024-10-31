@@ -210,6 +210,14 @@ input {
   color: var(--second-color);
 }
 
+.task-container {
+  cursor: pointer; /* Indicate draggable items */
+}
+
+.task-container.dragging {
+  opacity: 0.5; /* Make the dragged item semi-transparent */
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 1280px) {
   .todo__container {

@@ -8,6 +8,14 @@
 7. put the HTML on the web page
 */
 
+/*
+1. Add times to tasks
+2. be able to click on task and edit task
+3. be able to brag tasks and move them up or down in the list
+4. drag and drop
+*/
+
+
 
 //gets data form local storage when page is opened/refreshed
 
@@ -30,8 +38,8 @@ todoList.forEach((task, index) => {
   const deleteButtonDisplay = task.completed ? 'ri-close-line' : 'none';
 
   const html = `
-  <div class="task-container">
-  <button class="js__checkOff__todo-btn check__todo-btn">
+  <div class="task-container" draggable="true" data-index="${index}">
+    <button class="js__checkOff__todo-btn check__todo-btn">
       <i class="${checkedClass} task__circle"></i>
     </button>
     <div class="${task.completed ? 'completed-task' : 'task'}">${task.text}</div>
@@ -45,8 +53,12 @@ todoList.forEach((task, index) => {
   });
 
   //put the HTML on the web page
-  document.querySelector('.js__todo-list')
-  .innerHTML = todoListHTML;
+  const todoListContainer = document.querySelector('.js__todo-list');
+  todoListContainer.innerHTML = todoListHTML;
+
+  // Add drag-and-drop event listeners
+  addDragAndDropEvents(todoListContainer);
+
 
   // Handle check-off button click
   document.querySelectorAll('.js__checkOff__todo-btn').forEach((checkButton, index) => {
@@ -56,6 +68,14 @@ todoList.forEach((task, index) => {
 
       // Toggle task completion status
       task.completed = !task.completed;
+
+      // Move completed tasks to the bottom
+      if (task.completed) {
+        todoList.push(todoList.splice(index, 1)[0]); // Move to the end of the array
+      } else {
+        // Move not completed tasks back to the top
+        todoList.unshift(todoList.splice(index, 1)[0]); // Move to the start of the array
+      }
 
       // Update icon class
       icon.classList.toggle('ri-checkbox-blank-circle-line');
@@ -100,6 +120,9 @@ document.querySelector('.js__add-btn')
   });
   });
 
+// Spacebar activation for the task input
+
+
 // Get task from textbox when add task button is clicked
 document.querySelector('.js__add-task-btn').addEventListener('click', () => {
   taskInput();
@@ -133,6 +156,52 @@ function taskInput () {
   }
 }
 
+// Add drag and drop functionality
+function addDragAndDropEvents(container) {
+  const taskContainers = container.querySelectorAll('.task-container');
+
+  taskContainers.forEach(task => {
+    task.addEventListener('dragstart', handleDragStart);
+    task.addEventListener('dragover', handleDragOver);
+    task.addEventListener('drop', handleDrop);
+  });
+}
+
+let draggedTaskIndex;
+
+// Handle drag start event
+function handleDragStart(event) {
+  draggedTaskIndex = event.target.getAttribute('data-index');
+  event.dataTransfer.effectAllowed = 'move';
+}
+
+// Handle drag over event
+function handleDragOver(event) {
+  event.preventDefault(); // Allow drop
+  event.dataTransfer.dropEffect = 'move';
+}
+
+// Handle drop event
+function handleDrop(event) {
+  event.preventDefault();
+  const targetTaskIndex = event.target.closest('.task-container').getAttribute('data-index');
+
+  if (draggedTaskIndex !== targetTaskIndex) {
+    // Move task in the todoList array
+    const [movedTask] = todoList.splice(draggedTaskIndex, 1);
+    todoList.splice(targetTaskIndex, 0, movedTask);
+
+    // Update local storage
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+
+    // Recreate the task list
+    createTodoList();
+  }
+}
+
+// Initialize
+createTodoList();
+
 
 //js date generator
 const n = new Date();
@@ -151,4 +220,5 @@ const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Satur
 const d = new Date();
 let day = days[d.getDay()];
 document.getElementById("dayLong").innerHTML = day;
+
 
