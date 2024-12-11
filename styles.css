@@ -1,0 +1,217 @@
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --highlight_color: hsl(151, 96%, 51%);
+  --second-color: hsl(151, 96%, 35%);
+  --black-color: hsl(0, 0%, 0%);
+  --black-color-light: hsl(0, 0%, 40%);
+  --white-color: hsl(0, 0%, 95%);
+  --title-color: hsl(0, 0%, 0%);
+  --text-color: hsl(0, 0%, 35%);
+  --text-color-light: hsl(0, 0%, 64%);
+  --body-color: hsl(0, 0%, 90%);
+  --container-color: hsl(0, 0%, 93%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Roboto", sans-serif;
+  --lg-font-size: 2rem;
+  --md-font-size: 1.5rem;
+  --normal-font-size: 1rem;
+  --small-font-size: .64rem;
+  --smaller-font-size: .5rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-fixed-top: 200;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--text-color);
+  background-color: var(--body-color);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.task-list-container {
+  display: absolute;
+  justify-self: center;
+  align-self: center;
+  width: 90%;
+  background-color: var(--container-color);
+  padding: 5%;
+  margin-top: 10%;
+  box-shadow: inset 0 0.04em 0.15em var(--text-color-light);
+  z-index: var(--z-tooltip);
+}
+
+.task-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 37px;
+}
+
+.left-header {
+  width: 7%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.date-container {
+  font-weight: var(--font-bold);
+}
+
+.date {
+  font-size: var(--lg-font-size);
+}
+
+.monthAndYear-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  font-size: var(--small-font-size);
+}
+
+.month {
+  font-weight: var(--font-semi-bold);
+  width: 100%;
+  margin-top: .45rem;
+  margin-bottom: 0;
+}
+
+.year {
+  font-weight: var(--font-regular);
+  width: 100%;
+  margin-bottom: .45rem;
+}
+
+.right-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 8vh;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: var(--md-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+.add-btn-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: fit-content;
+}
+
+.add-task-btn {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  padding: .5em 1.2em;
+  background-color: var(--highlight_color);
+  color: var(--second-color);
+  border: none;
+  border-radius: 10em;
+  font-size: var(--h1-font-size);
+  z-index: var(--z-fixed);
+  cursor: pointer;
+}
+
+.task-input-container {
+  position: relative;
+  justify-self: center;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 9%;
+  padding-top: 1rem;
+  width: 100%;
+  z-index: var(--z-fixed-top);
+}
+
+input {
+  border: none;
+  margin-left: 3rem;
+  padding: .3em .6em;
+  box-shadow: inset 0 0.10em 0.25em var(--black-color-light);
+  outline: none;
+}
+
+.input-btn {
+  padding: .5em 1.2em;
+  border-radius: 3em;
+  background-color: var(--highlight_color);
+  border: none;
+  color: var(--second-color);
+  font-size: var(--h3-font-size);
+  cursor: pointer;
+}
+
+.task-container {
+  display: grid;
+  grid-template-columns: .1fr 1fr .25fr;
+  margin-top: 5%;
+}
+
+.check-task-btn {
+  display: flex;
+  justify-content: flex-start;
+  border: none;
+  background-color: var(--container-color);
+  cursor: pointer;
+  color: var(--second-color);
+  font-size: var(--h2-font-size);
+}
+
+.completed-task {
+  color: var(--text-color-light);
+  text-decoration: line-through;
+}
+
+.delete-task-btn {
+  display: flex;
+  justify-content: flex-end;
+  border: none;
+  padding: 0;
+  background-color: var(--container-color);
+  color: var(--text-color-light);
+  font-size: var(--h2-font-size);
+  border: none;
+  z-index: var(--z-fixed);
+  cursor: pointer;
+}
+
+.task-check {
+  color: var(--second-color);
+}
+
+.task-container {
+  cursor: pointer;
+  /* Indicate draggable items */
+}
+
+.task-container.dragging {
+  opacity: 0.5;
+  /* Make the dragged item semi-transparent */
+}

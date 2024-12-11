@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=none">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" crossorigin="">
-  <link rel="stylesheet" href="style.css">
-  <title>To Do List</title>
+  <link rel="stylesheet" href="styles.css">
+  <title>task List</title>
 </head>
-  <body>
-    <!-- TO DO LIST CONTAINER -->
-    <div class="todo__list">
-      <div class="todo__container">
 
-        <!-- TOP TO DO LIST CONTAINER -->
-        <div class="top__container">
+<body>
+  <!-- CONTAINER -->
+  <div class="container">
+    <div class="task-list-container">
+    
+      <!-- TASK HEADER-->
+      <div class="task-header">
 
-          <!-- LEFT SIDE OF TOP TO DO LIST CONTAINER -->
-          <div class="date__container">
-            <div class="day__number" id="dateNumber">
-            </div>
-
-            <div class="monthAndYear__container">
-              <div class="month" id="dateMonth"></div>
-              <div class="year" id="fullYear"></div>
-            </div>
+        <!-- LEFT SIDE OF TASK HEADER -->
+        <div class="left-header">
+          <div class="date-container">
+            <div class="date" id="date"></div>
           </div>
-
-          <!-- RIGHT SIDE OF TOP TO DO LIST CONTAINER -->
-          <div class="day__container" id="dayLong">Wednesday</div>
+          <div class="monthAndYear-container">
+            <div class="month" id="month"></div>
+            <div class="year" id="year"></div>
+          </div>
         </div>
 
-        <!-- BOTTOM TO DO LIST CONTAINER -->
-        <div class="js__todo-list todo__grid"></div>    
+        <!-- RIGHT SIDE OF TASK HEADER -->
+        <div class="right-header">
+          <div class="day" id="day"></div>
+        </div>
       </div>
 
-      <!-- VISIBLE ADD TASK BUTTON -->
-      <div class="add-btn__container">
-        <button class="js__add-btn add__task-btn">+</button>
+        <!-- TASK GRID -->
+      <div class="js-task-list task-grid"></div>
+
+      <!-- VISIBLE ADD BUTTON -->
+      <div class="add-btn-container">
+        <button class="js-add-btn add-task-btn">+</button>
       </div>
 
-      <!-- APPEARS AFTER JS__add-BTN IS CLICKED -->
+      <!-- APPEARS AFTER JS-add-BTN IS CLICKED -->
       <!-- TASK INPUT CONTAINER -->
       <div class="task-input-container" style="display:none;">
-        <input type="text" class="js__task-input task__input" placeholder="Enter a new task" onkeydown="addTaskKeydown(event)">
-        <button class="js__add-task-btn input-btn">+</button>
+        <input type="text" class="js-task-input task-input" placeholder="Enter a new task"
+          onkeydown="addTaskKeydown(event)">
+        <button class="js-add-task-btn input-btn">+</button>
       </div>
     </div>
+  </div>
 
-    <script src="scripts/taskManager.js"></script>
-    <script src="scripts/taskEditor.js"></script>
-    <script src="scripts/dragDrop.js"></script>
-    <script src="scripts/dateGenerator.js"></script>
-  </body>
-</html>
+  <script src="scripts/script.js"></script>
+  <script src="scripts/dateGenerator.js"></script>
+  <script src="scripts/dragDrop.js"></script>
+</body>
