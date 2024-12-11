@@ -15,20 +15,13 @@
 4. drag and drop
 */
 
-
-
-//gets data form local storage when page is opened/refreshed
-
-
-// create an array to store tasks
 //get tasks from local storage
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
-//create HTML code for each task
+//call function to create HTML code for each task
 createTodoList()
 
-//loop through the array
-//create HTML code for each task
+//function that loops through the array & create HTML code for each task
 function createTodoList() {
   let todoListHTML = '';
 
@@ -88,12 +81,11 @@ todoList.forEach((task, index) => {
       // Save updated todoList to local storage
       localStorage.setItem('todoList', JSON.stringify(todoList));
 
-      //needed to store new to do list
+      //call function to createnew to do list
       createTodoList()
     });
   });
       
-
   //delete task when delete button is clciked
   document.querySelectorAll('.js__delete__todo-btn')
     .forEach((deleteButton, index) => {
@@ -105,6 +97,44 @@ todoList.forEach((task, index) => {
         createTodoList();
       });
     });
+
+    // Make tasks editable when clicked
+  document.querySelectorAll('.task').forEach((taskElement) => {
+    taskElement.addEventListener('click', (event) => {
+      const index = event.target.dataset.index;
+      const task = todoList[index];
+      const taskTextElement = event.target;
+
+      // Hide task text and show input field
+      const inputField = document.createElement('input');
+      inputField.type = 'text';
+      inputField.value = task.text;
+      inputField.classList.add('edit-task-input');
+      taskTextElement.innerHTML = '';
+      taskTextElement.appendChild(inputField);
+      inputField.focus();
+
+      // Update task on input blur (when user clicks outside) or pressing Enter
+      inputField.addEventListener('blur', () => {
+        updateTask(index, inputField.value);
+      });
+
+      inputField.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          updateTask(index, inputField.value);
+        }
+      });
+    });
+  });
+}
+
+// Function to update the task
+function updateTask(index, newText) {
+  if (newText.trim()) {
+    todoList[index].text = newText.trim();
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+    createTodoList();
+  }
 }
 
 // Show input field when add button is clicked
